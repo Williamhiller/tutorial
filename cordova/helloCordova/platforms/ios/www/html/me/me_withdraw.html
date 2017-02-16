@@ -1,0 +1,48 @@
+
+<!--提现页面-->
+<ion-view title="提现" hide-nav-bar="isWechat">
+    <ion-content>
+        <div class="list">
+            <div class="c-999 padding">账户余额(元): <span>{{data.balance_amt | number:2}}</span></div>
+            <div class="item item-input item-button-right">
+                <span class="input-label">到账银行</span>
+                <img class="bank-img" ng-src="frame/images/{{data.app_bankImg}}">
+                {{data.bankname}}<span class="f-14 c-999">({{data.cardcd_tail}})</span>
+            </div>
+            <div class="item item-input item-icon-right">
+                <span class="input-label" style="width: 6.5em">交易密码</span>
+                <input ng-model="withdrawForm.tradePassword" maxlength="20" type="password" placeholder="6-16字符，包含数字，字母">
+                <eyeicon></eyeicon>
+                <inputclear text="withdrawForm.tradePassword"></inputclear>
+            </div>
+            <div class="item item-input item-icon-right item-borderless">
+                <span class="input-label" style="width: 6.5em">提现金额(元)</span>
+                <input ng-blur = "blur()" ng-model="withdrawForm.amount" type="number" minlength="1" maxlength="12" placeholder="请输入提现金额">
+                <inputclear text="withdrawForm.amount"></inputclear>
+            </div>
+            <div class="item b-gray c-fff a-center f-18" ng-if="withdrawForm.amount">{{withdrawForm.amount | splitBy:"numToCny"}}</div>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="submit()">确定</button>
+        </div>
+        <!--tips 通用-->
+        <div class="tips">
+            <div class="header">Tips</div>
+            <ol>
+                <li>提现手续费：免费最低提现金额：{{data.DRAWINGS_SINGLE_MIN_AMOUNT | currency:''}}元/笔</li>
+                <li>每日最大提现金额：{{data.DRAWINGS_DAY_MAX_AMOUNT | currency:''}}元，每日最大提现次数{{data.DRAWINGS_DAY_MAX_COUNT}}次</li>
+                <li>提现金额将自动转至您绑定的银行卡中</li>
+                <li>提现到账时间：
+                    <ul>
+                        <li>工作日10:00前提现，预计当日下午16:00前到账</li>
+                        <li>其它时间提现则下一个工作日到账</li>
+                        <li>如遇法定节假日，则顺延至下一个工作日处理</li>
+                        <li>根据不同银行到账速度会有不同情况，一般情况下会在1-3个工作日内到账</li>
+                    </ul>
+                </li>
+                <li>提现中的金额可以在我的账户-总资产中查看</li>
+                <li>如果提现途中有任何问题都可以打客服电话:<a href="tel:4009201239">400-920-1239</a></li>
+            </ol>
+        </div>
+    </ion-content>
+</ion-view>

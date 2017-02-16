@@ -1,0 +1,16 @@
+
+<ion-view title="意见反馈" hide-nav-bar="isWechat" nav-direction="back">
+    <ion-content scroll="false">
+
+        <div class="m-top">
+            <textarea class="no-resize full-image padding" ng-model="data.feedback" rows="12" placeholder="请输入您的宝贵意见、建议，我们将不断完善" maxlength="500"></textarea>
+            <p class="a-right" style="position: relative;top: -24px;right: 16px">{{500-data.feedback.length>0?500-data.feedback.length:0}}／500</p>
+        </div>
+        <div class="padding">
+
+            <button class="button button-block button-positive"
+                    ng-class="{'button-disabled':!data.feedback}"
+                    ng-click="submit()">提交</button>
+        </div>
+    </ion-content>
+</ion-view>
