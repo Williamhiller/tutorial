@@ -1,3 +1,8 @@
+###Phonegap与cordova
+
+PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Software Foundation，Apache 将这个项目命名为Cordova ，也就是说 PhoneGap 是基于 Cordova 的。实际使用中cordova插件更多一些，所以使用cordova。
+
+<br/>
 
 ###安装
 
