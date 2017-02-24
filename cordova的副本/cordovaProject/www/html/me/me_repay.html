@@ -1,0 +1,53 @@
+
+<ion-view title="还款" hide-nav-bar="isWechat">
+    <ion-content scroll="false">
+        <div class="Repay_header header_bg-img c-fff padding f-16">
+            <p class="a-center">{{data.MERCHANT_NAME}}的分期订单</p>
+            <p>需还金额(元)
+                <span ng-if="data.LEFT_DAYS>=0" class="c-gray f-12">距本期最终还款日还剩{{data.LEFT_DAYS}}天</span>
+                <span ng-if="data.LEFT_DAYS<0" class="c-gray f-12">您已逾期{{-data.LEFT_DAYS}}天</span>
+            </p>
+            <p class="f-40">
+                <span class="f-w-b">{{data.TOTAL_AMT | number:2}}</span>
+                <span class="f-12 c-gray">
+                    第<span class="f-16 c-fff">{{data.REPAY_PREIOD}}</span>/{{data.TOTAL_PERIOD}}期
+                </span>
+            </p>
+        </div>
+        <div class="list">
+            <div class="item item-radio item-icon-right">
+                账户余额<span class="c-999 f-14">({{data.ACCOUNT_AMT | number:2}}元)</span>
+                <span ng-if="data.ACCOUNT_AMT<data.TOTAL_AMT" class="item-note l-height16">余额不足，<a ng-click="stateGo('tab.me_recharge')">请充值</a></span>
+                <input type="radio" name="method" value="account"
+                       ng-model="repay.method" ng-checked="true">
+                <i class="icon icon-success"></i>
+            </div>
+            <div class="item item-radio item-icon-right">
+                在线支付
+                <span ng-if="data.CARDCD_TAIL" class="item-note l-height16">
+                   <img class="bank-img" ng-src="frame/images/{{data.APP_BANKIMG}}">
+                   尾号{{data.CARDCD_TAIL}}
+                </span>
+                <input type="radio" name="method" value="online"
+                       ng-model="repay.method">
+                <i class="icon icon-success"></i>
+            </div>
+        </div>
+        <div class="padding">
+            <button class="button button-positive button-block" ng-click="submit()">立即还款</button>
+        </div>
+
+        <form method="post" id="FormSub">
+            <input type="hidden" name="back_url" id="back_url">
+            <input type="hidden" name="data_content" id="data_content">
+            <input type="hidden" name="data_type" id="data_type">
+            <input type="hidden" name="input_charset" id="input_charset">
+            <input type="hidden" name="language" id="language">
+            <input type="hidden" name="member_id" id="member_id">
+            <input type="hidden" name="terminal_id" id="terminal_id">
+            <input type="hidden" name="txn_sub_type" id="txn_sub_type">
+            <input type="hidden" name="txn_type" id="txn_type">
+            <input type="hidden" name="version" id="version">
+        </form>
+    </ion-content>
+</ion-view>

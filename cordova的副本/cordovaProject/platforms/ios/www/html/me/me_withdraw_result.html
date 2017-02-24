@@ -1,0 +1,13 @@
+
+<ion-view title="提现成功" hide-nav-bar="isWechat">
+    <ion-content scroll="false" class="b-fff">
+        <div class="Repay_res padding b-fff">
+            <div class="status a-center padding">
+                <p class="f-24 l-height2">您的提现申请已完成</p>
+                <p class="f-16 l-height2">提现金额为<span class="positive">{{withdraw_amt}}</span>元</p>
+                <p class="f-16">预计到达您{{data.bankname}}({{data.cardcd_tail}})的时间为<span class="c-333">1-3个工作日</span>({{times}}以前) </p>
+            </div>
+            <button class="button button-block button-positive" ng-click="stateGo('tab.me')">返回我的</button>
+        </div>
+    </ion-content>
+</ion-view>

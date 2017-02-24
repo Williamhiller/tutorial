@@ -1,0 +1,35 @@
+
+<ion-view title="登录页面" hide-nav-bar="isWechat" hide-back-button="true">
+    <ion-content scroll="false">
+        <form name="loginForm" ng-submit="submit()" class="log-in" autocomplete="off">
+            <div class="list">
+                <div class="item item-input item-icon-right">
+                    <span class="input-label">手机号码</span>
+                    <input type="tel" placeholder="请输入11位手机号码" ng-model="user.mobileNo" name="phone" maxlength="20">
+                    <inputclear text="user.mobileNo"></inputclear>
+                </div>
+                <div class="item item-input item-icon-right">
+                    <span class="input-label">登录密码</span>
+                    <input ng-model="user.password" id="password" type="password" placeholder="请输入密码" name="password" maxlength="20">
+                    <eyeicon></eyeicon>
+                    <inputclear text="user.password"></inputclear>
+                </div>
+            </div>
+
+
+            <div class="padding">
+                <p class="m-bottom-10">
+                    <span class="a">财富农场账号可直接登录</span>
+                    <a ng-click="stateGo('tab.forgetPassword')" style="float: right">忘记密码？</a>
+                </p>
+                <button type="submit" class="button button-block button-positive"
+                        ng-class="{'button-disabled':!(user.mobileNo && user.password)}">登录</button>
+
+                <div class="a-right m-top-10">
+                    <a ng-click="stateGo('tab.register')">还没有账号？赶紧注册吧！</a>
+                </div>
+            </div>
+
+        </form>
+    </ion-content>
+</ion-view>

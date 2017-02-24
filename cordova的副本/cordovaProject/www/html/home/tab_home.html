@@ -1,0 +1,121 @@
+<ion-view view-title="首页" hide-nav-bar="true">
+    <ion-content>
+        <ion-slide-box ng-if="slide" auto-play="true" slide-interval="4000" does-continue="false" show-pager="true">
+            <ion-slide ng-repeat="img in slide">
+                <div class="item-image" style="height: 2.8rem">
+                    <img ng-src="{{img.FILE_PATH}}">
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        
+        <img style="background:red;width:200px;height:300px;" src="http://61.152.245.199/file/T_BANNER_FILE/20170117/file_7bac4eea-bf16-4fb2-bea0-4c4ff9123200.png">
+        <div class="list">
+            <a ng-click="stateGo('tab.home_apartment')" class="item item-icon-left c-666">
+                <i class="icon icon-apartment positive"></i>
+                长租公寓分期
+            </a>
+            <a ng-click="stateGo('tab.home_banking')" class="item item-icon-left c-666">
+                <i class="icon icon-borrowing positive"></i>
+                消费分期
+            </a>
+        </div>
+
+        <a class="H_order" ng-click="stateGo('tab.credit_bindBankcard')" ng-if="!data.is_finished_bankcard && data.orderlist==''">
+            <div class="item item-avatar item-icon-right">
+                <img src="frame/images/icon_bankcard.jpg">
+                <h2 class="alone">绑定银行卡</h2>
+                <i class="icon icon-forward"></i>
+            </div>
+            <div class="item" align="center">
+                <p class="img-box"><img src="frame/images/pic_bank_card.png"></p>
+                <p class="f-16 c-666">绑定银行卡</p>
+                <p class="f-12">立即录入银行卡信息进行绑定,即可开启美好分期之旅</p>
+                <button class="button button-block button-positive">立即绑卡</button>
+            </div>
+        </a>
+        <a class="H_order" ng-click="stateGo('tab.credit_personal')" ng-if="data.is_finished_bankcard && data.finished_credit_level!='2'&& data.orderlist=='' ">
+            <div class="item item-avatar item-icon-right">
+                <img src="frame/images/icon_complete_credit.jpg">
+                <h2 class="alone">完善个人信息</h2>
+                <i class="icon icon-forward"></i>
+            </div>
+            <div class="item" align="center">
+                <p class="img-box"><img src="frame/images/pic_credit_info.png"></p>
+                <p class="f-16 c-666">信用信息待完善</p>
+                <p class="f-12">立即上传身份证照片等信息进行信用审核,审核通过之后就可以进行分期啦</p>
+                <button class="button button-block button-positive">立即完善信用信息</button>
+            </div>
+        </a>
+        <!--未确认订单-->
+        <div ng-if="data.orderlist!=''" ng-repeat="item in data.orderlist">
+            <a class="H_order" ng-if="item.sod_main_state=='241900000001'&&item.left_time>0" ui-sref="tab.me_order_detail({inst_order_id:item.inst_order_id})">
+                <div class="item item-avatar item-icon-right" ng-cloak>
+                    <img ng-src="frame/images/{{item.sod_industry_type.substr(7,1)==1?'icon_renting':'icon_financing'}}.jpg">
+                    <h2>{{item.merchant_name}}的订单</h2>
+                    <p class="f-12">{{item.sod_apply_date | currency:""}}</p>
+                    <i class="icon icon-forward"></i>
+                    <span class="step f-12">可分
+                        <em ng-if="item.cod_apply_preiod" class="f-16 c-orange">{{item.cod_apply_preiod}}</em>
+                        <em ng-if="!item.cod_apply_preiod" class="f-16 c-orange">{{item.sod_min_installment}}-{{item.sod_max_installment}}</em>期
+                    </span>
+                </div>
+                <div class="item f-0" align="center">
+                    <p ng-if="item.cod_apply_preiod" class="f-16 c-666">每期还款(元)<span ng-if="item.left_time < 0" class="tag tag-orange">已失效</span></p>
+                    <p ng-if="!item.cod_apply_preiod" class="f-16 c-666">每期最低还款(元)<span ng-if="item.left_time < 0" class="tag tag-orange">已失效</span></p>
+                    <h2 class="c-orange f-32">{{item.sod_repayment_amt | currency:""}}</h2>
+                    <p class="f-11 c-666">分期总额(元): {{item.sod_total_amt | currency:""}}</p>
+                    <p class="f-12">尊敬的{{item.bod_mb_mobile | splitBy:'phoneReplace'}}用户，{{item.all_time}}小时之内未确认此订单，将自动失效(剩余确认时间:<count-down time="item.left_time"></count-down>)</p>
+                    <button class="button button-block button-positive m-bottom-10">去确认</button>
+                    <p class="f-12 c-999" ng-if="!data.is_finished_bankcard">
+                        提示：您尚未绑定银行卡，点击去
+                        <span class="a" ng-click="$event.stopPropagation()" ui-sref="tab.credit_bindBankcard">绑定银行卡</span>
+                    </p>
+
+                    <p class="f-12 c-999" ng-if="data.finished_credit_level!='2'&&data.is_finished_bankcard ">
+                        提示：您还尚未完善信用信息，点击去
+                        <span class="a" ng-click="$event.stopPropagation()" ui-sref="tab.credit_personal">完善信用信息</span>
+                    </p>
+                </div>
+            </a>
+
+            <a class="H_order" ng-if="item.sod_main_state=='241900000002'" ui-sref="tab.me_order_detail({inst_order_id:item.inst_order_id})">
+                <div class="item item-avatar item-icon-right" ng-cloak>
+                    <img ng-src="frame/images/{{item.sod_industry_type.substr(7,1)==1?'icon_renting':'icon_financing'}}.jpg">
+                    <h2>{{item.merchant_name}}的订单</h2>
+                    <p class="f-12">{{item.sod_apply_date}}</p>
+                    <i class="icon icon-forward"></i>
+                    <span class="step f-12"><em class="f-16 c-orange">{{item.cod_apply_preiod}}</em>期</span>
+                </div>
+                <div class="item f-0" align="center">
+                    <p ng-if="item.cod_apply_preiod" class="f-16 c-666">每期还款(元)</p>
+                    <p ng-if="!item.cod_apply_preiod" class="f-16 c-666">每期最低还款(元)</p>
+                    <h2 class="c-orange f-32">{{item.sod_repayment_amt | currency:""}}</h2>
+                    <p class="f-11 c-666">分期总额(元): {{item.sod_total_amt |  currency:""}}</p>
+                    <p class="f-12">工作人员会尽快审核，请您耐心等待</p>
+                    <button class="button button-block button-positive m-bottom-10">审核中(查看进度)</button>
+                </div>
+            </a>
+            <a class="H_order" ng-if="item.sod_main_state=='241900000006' && item.is_pdstatus_repay == '100000000001'" ng-click="stateGo('tab.me_repay',{inst_order_id:item.inst_order_id,repay_period:item.repay_preiod})">
+                <div class="item item-avatar item-icon-right" ng-cloak>
+                    <img ng-src="frame/images/{{item.sod_industry_type.substr(7,1)==1?'icon_renting':'icon_financing'}}.jpg">
+                    <h2>{{item.merchant_name}}的订单</h2>
+                    <p class="f-12">{{item.sod_apply_date}}</p>
+                    <i class="icon icon-forward"></i>
+                    <span class="step f-12">第<em class="f-16 c-orange">{{item.repay_preiod}}</em>/{{item.cod_apply_preiod}}期</span>
+                </div>
+                <div class="item" align="center">
+                    <p class="f-16 c-666">
+                        本期应还(元)
+                        <span ng-if="item.is_late=='100000000001'" class="tag tag-orange">已逾期</span>
+                    </p>
+                    <h2 class="c-orange f-32"> {{item.repayment_amt | currency:""}}</h2>
+                    <p class="f-11 c-666">分期总额(元): {{item.sod_total_amt |  currency:""}}</p>
+                    <p class="f-12" ng-if="item.is_late=='100000000002'">据本期最终还款日还剩{{item.repay_date_count | splitBy:'floor'}}天</p>
+                    <p class="f-12" ng-if="item.is_late=='100000000001'">您已逾期<span class="c-orange">{{-item.repay_date_count | splitBy:'floor'}}</span>天</p>
+                    <button  class="button button-block button-positive">立即还款</button>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
+
