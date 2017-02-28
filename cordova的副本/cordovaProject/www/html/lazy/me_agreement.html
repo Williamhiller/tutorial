@@ -1,0 +1,256 @@
+<ion-view title="委托服务协议" hide-nav-bar="isWechat">
+<style>
+    .Order_agreement{width: 90%; margin: 20px auto; line-height: 30px;}
+    .Order_agreement tr td:first-child{ text-align: center; font-weight: bold;}
+    .Order_agreement td{ border:1px solid #cccccc}
+    .Order_agreement td:last-child{padding-left: 5px;}
+    .Order_agreement_paddleft{padding-left: 20px;}
+</style>
+    <ion-content class="b-fff">
+        <h4 class="text-center">时惠分享平台委托服务协议</h4>
+        <p class="text-center">编号：{{data.INST_ORDER_ID}}</p>
+        <h5 class="text-center">第一部分：委托事项明细</h5>
+        <table align="center" border="1" cellpadding="0" cellspacing="0" bgcolor="#faebd7" class="Order_agreement">
+            <tr align="center">
+                <td colspan="4"><h5>消费者(甲方)</h5></td>
+            </tr>
+            <tr>
+                <td>名称/姓名</td>
+                <td colspan="3">{{data.REALNAME}}</td>
+            </tr>
+            <tr>
+                <td>证件类型</td>
+                <td colspan="3">身份证</td>
+            </tr>
+            <tr>
+                <td>证件号码</td>
+                <td colspan="3">{{data.CERTIFICATION_NO}}</td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>商家(乙方)</h5></td>
+            </tr>
+            <tr>
+                <td>名称</td>
+                <td colspan="3">{{data.MERCHANT_NAME}}</td>
+            </tr>
+            <tr>
+                <td>证件类型</td>
+                <td colspan="3">身份证</td>
+            </tr>
+            <tr>
+                <td>证件号码</td>
+                <td colspan="3">{{data.ID_CARD}}</td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>中介平台/服务方(丙方)</h5></td>
+            </tr>
+            <tr>
+                <td>名称</td>
+                <td colspan="3">上海南相资产管理有限公司</td>
+            </tr>
+            <tr>
+                <td>证件类型</td>
+                <td colspan="3">营业执照</td>
+            </tr>
+            <tr>
+                <td>证件号码</td>
+                <td colspan="3">91310000312391725A</td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>消费信息</h5></td>
+            </tr>
+            <tr>
+                <td>消费协议</td>
+                <td colspan="3">见附件</td>
+            </tr>
+            <tr>
+                <td>消费金额总额</td>
+                <td colspan="3">{{data.BOD_TOTAL_AMT | currency:"¥"}}</td>
+            </tr>
+            <tr>
+                <td>期数</td>
+                <td colspan="3">共{{data.COD_APPLY_PREIOD}}期</td>
+            </tr>
+            <tr>
+                <td>消费期限</td>
+                <td colspan="3"><span ng-if="data.CT_START_DATE&&data.CT_END_DATE">自{{data.CT_START_DATE}}至{{data.CT_END_DATE}}</span></td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>委托借款相关信息</h5></td>
+            </tr>
+            <tr>
+                <td>消费金额总额</td>
+                <td colspan="3">{{data.BOD_TOTAL_AMT | currency:"¥"}}</td>
+            </tr>
+            <tr>
+                <td>委托服务费</td>
+                <td colspan="3">{{data.SERVICE_CHARGE_AMT | currency:"¥"}}</td>
+            </tr>
+            <tr>
+                <td>其他费用</td>
+                <td colspan="3">无</td>
+            </tr>
+            <tr>
+                <td>委托服务费及其他费用支付方</td>
+                <td colspan="3">{{data.BOD_PAYING_PARTY_VO}}</td>
+            </tr>
+            <tr>
+                <td>借款总额</td>
+                <td colspan="3">{{data.REALITY_TOTAL_REPAYMENT_AMT | splitBy:'numToCny'}}（小写：￥{{data.REALITY_TOTAL_REPAYMENT_AMT}}）</td>
+            </tr>
+            <tr>
+                <td>预计借款起始日</td>
+                <td colspan="3">{{data.SOD_START_DATE}}</td>
+            </tr>
+            <tr>
+                <td>预计借款到期日</td>
+                <td colspan="3">{{data.SOD_END_DATE}}</td>
+            </tr>
+            <tr>
+                <td>借款利率</td>
+                <td colspan="3">{{data.PERIOD_RATE | number:2}}%</td>
+            </tr>
+            <tr>
+                <td>借款利息</td>
+                <td colspan="3">{{data.TOTAL_INTEREST_AMT | splitBy :'numToCny'}}（小写：{{data.TOTAL_INTEREST_AMT | currency:"¥"}}）</td>
+            </tr>
+            <tr>
+                <td>还款计划</td>
+                <td colspan="3">详见借款订单</td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>委托转付</h5></td>
+            </tr>
+            <tr>
+                <td>转付金额</td>
+                <td colspan="3">{{data.LOAN_AMT |splitBy:'numToCny'}}（小写：{{data.LOAN_AMT | currency:"¥"}}）</td>
+            </tr>
+            <tr>
+                <td>收款账户</td>
+                <td colspan="3">账户名称：{{data.MERCBC_REALNAME}}<br/>
+                    开户银行：{{data.ISSUE_BANK_CD}}<br/>
+                    账户号码：{{data.CARD_CD}}</td>
+            </tr>
+            <tr>
+                <td>转付期限</td>
+                <td colspan="3">甲方借款成功后3-7个工作日内</td>
+            </tr>
+            <tr align="center">
+                <td colspan="4"><h5>保证金</h5></td>
+            </tr>
+            <tr>
+                <td>保证金金额</td>
+                <td colspan="3">{{data.CASH_DEPOSIT_AMT | splitBy:'numToCny'}}（小写：{{data.CASH_DEPOSIT_AMT | currency:"¥"}}）</td>
+            </tr>
+            <tr>
+                <td>保证金支付方</td>
+                <td colspan="3">乙方</td>
+            </tr>
+        </table>
+        <h5 class="text-center">第二部分 通用条款</h5>
+        <div class="padding">
+            <p>鉴于：</p>
+            <p class="t-indent2">甲方为时惠分享平台（以下简称为“时惠分享”）的实名注册用户，且为消费关系中的消费者。甲方同时是财富农场平台（以下简称“财富农场”）的实名注册用户，为借款人；</p>
+            <p class="t-indent2">乙方为时惠分享的实名注册商户，且为消费关系中的商家，具有提供相应产品或服务的资质、条件；</p>
+            <p class="t-indent2">丙方为一家在中华人民共和国境内合法注册的有限责任公司，开发设立、运营并管理“时惠分享”平台和“财富农场”平台。</p>
+            <p class="t-indent2">甲方与乙方签订消费协议（具体的消费性质以双方签署的消费协议为准），甲方消费乙方提供的产品或服务，并向乙方缴纳相应的消费款。甲方通过丙方运营的“财富农场”平台向“财富农场”的其他实名注册用户借款，借款用于支付消费款（及可能存在的委托服务费、其他费用等）。丙方为甲方、乙方的行为提供了服务，有权收取相应的服务费。</p>
+            <p class="t-indent2">现甲方、乙方、丙方协商一致，采用在“时惠分享”确认信息的方式，就上述事宜达成本协议，以资共同遵守。</p>
+            <p class="t-indent2">甲方、乙方、丙方单独称“一方”，合称“三方”或“各方”。</p>
+            <h6 class="f-w-b f-14">一、委托事项</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>甲方委托丙方，通过使用财富农场的中介服务向财富农场平台上其他实名注册用户（以下简称为“出借人”）申请借款。借款信息以本协议《第一部分：委托事项明细》中的“委托借款”相关内容为准。</li>
+                <li>甲方委托丙方，将甲方于本协议下通过财富农场借入的借款，划入乙方收款账户，用于向乙方支付消费资金（由丙方向乙方转付）。</li>
+                <li>甲方委托并授权丙方，根据财富农场平台上出借人的出借情况，向多个出借人借入资金，以满足甲方的借款需求（借款总额）。</li>
+                <li>甲方及乙方委托并授权丙方，对资金的收取及资金的支付进行操作，包括但不限于对于相关费用的支付、清偿及向银行、第三方支付平台发出划款指令等。</li>
+                <li>甲方及乙方于本协议下共同委托丙方提供交易撮合服务及资金的划转操作，丙方于本协议下同意接受甲乙双方之委托并收取委托服务费。其他费用可能包含时惠分享合作的相关银行费用、第三方支付平台收取的费用。</li>
+                <li>甲方及乙方于本协议下共同委托丙方提供交易撮合服务及资金的划转操作，丙方于本协议下同意接受甲乙双方之委托并收取委托服务费。</li>
+                <li>其他费用可能包含时惠分享合作的相关银行费用、第三方支付平台收取的费用。</li>
+                <li>委托期限自本协议生效之日起，至发生本协议约定的解除条件或本协议终止且协议项下的权利义务全部履行完毕之日止。</li>
+                <li>本委托为不可撤销之委托。</li>
+            </ul>
+            <h6 class="f-w-b f-14">二、委托服务费</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>甲方委托丙方提供借贷中介平台服务而实现借款、甲乙双方共同委托丙方提供转付金额的转付操作，丙方有权收取委托服务费。</li>
+                <li>委托服务费以甲方实际借款总额一定比例计算。具体委托服务费以本协议《第一部分：委托事项明细》中的“委托借款”项下的“委托服务费”为准。</li>
+                <li>甲方及乙方同意，由于国家政策调整、利率变化或者丙方自身业务开展需要等情况，丙方有权单方面调整服务费计算比例。甲方或乙方应按调整后的比例向丙方另行支付调整后的委托服务费与本协议约定的委托服务费之差价。</li>
+                <li>财富农场每笔借款交易成功后，甲方授权丙方向相关银行或者第三方支付机构发出划款指令，将募集的借款划转至乙方账户。</li>
+            </ul>
+            <h6 class="f-w-b f-14">三、权利义务</h6>
+            <p class="Order_agreement_paddleft f-w-b l-height2">(一)甲方权利义务</p>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>有权按约定在丙方网络借贷中介服务下通过财富农场平台借入本协议下约定的借款总额。</li>
+                <li>须按约定的预计还款日24:00前，通过财富农场指定的还款通道清偿借款总额及借款利息。</li>
+                <li>按照本协议的约定向丙方支付相关费用（如有）。</li>
+                <li>根据丙方要求提供个人相关材料，包括但不限于真实姓名、身份证信息、学历、手机号码、邮箱等。</li>
+                <li>若于本协议生效后，甲方与乙方变更消费协议下任何内容的，均应及时以书面形式告知丙方。</li>
+                <li>如甲方不能按时归还在财富农场平台的借款及/或借款利息，且乙方尚未受让出借人对甲方的债权的，丙方有权利代表出借人向甲方催收，丙方应支付甲方的催收费用。丙方对甲方催收费用计算标准为：以甲方借款总额（扣除已经还款部分）为基数，按照2%/月的催收成本，按日计算。</li>
+                <li>如甲方不能按时归还在财富农场平台的借款及/或借款利息并且乙方受让出借人对甲方的债权，乙方有权立即终止与甲方的消费关系并有权利不退还甲方已经缴纳的消费款。</li>
+            </ul>
+            <p class="Order_agreement_paddleft f-w-b l-height2">(二)乙方权利义务</p>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>于本协议约定的转付期限内获得足额的转付金额。</li>
+                <li>如甲方未能按时归还在财富农场平台的借款及/或借款利息且丙方要求乙方受让出借人对甲方的借款，乙方应于丙方发出通知之日起3个工作日内，按照现时的借款总额、借款利息及已发生的违约金总和受让出借人对甲方的借款。</li>
+                <li>在乙方按照丙方通知受让借款人对甲方债权的情况下，解除与甲方的消费关系，并有权利不退还甲方已经缴纳的消费款。</li>
+                <li>乙方应按照甲方的消费金额的一定比例，向丙方缴纳保证金。保证金的计算方法双方另行约定。</li>
+                <li>如乙方受让出借人对甲方债权实际支付的款项超过了甲方剩余的消费款，则超过部分，乙方有权要求甲方赔偿。</li>
+            </ul>
+            <p class="Order_agreement_paddleft f-w-b l-height2">(三)丙方权利义务</p>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>丙方有权根据甲方提供的资料及通过其他方式获得的甲方信息进行信用审核及评定，并根据评定结果，决定是否在财富农场平台向出借人推荐甲方的借款需求。</li>
+                <li>根据甲方提供的借款需求，在财富农场平台向多个出借人发布借款需求，以协助甲方成功借入资金。</li>
+                <li>若丙方于本协议生效后发现甲方及/或乙方提供虚假信息，可单方面解除协议；若丙方通过前述情况解除本协议时，对于甲方借款已成立的金额，丙方有权代表出借人要求甲方提前履行清偿义务或要求乙方提前履行受让债权的义务。</li>
+                <li>根据本协议约定收取委托服务费及/或代为收取其他费用。</li>
+                <li>根据本协议履行目的，对相关资金的管理、支付、存管、扣划等进行操作或者向银行、第三方支付机构发出相关操作指令。</li>
+                <li>将甲方借入资金及时划入收款账户。</li>
+                <li>有权要求乙方按照本协议约定缴纳保证金，并于发生约定事项时使用保证金进行借款总额、借款利息及催收费用的全部或部分清偿。</li>
+                <li>丙方有权根据出借人委托或在甲方逾期清偿时，将甲方通过财富农场产生的借款债务所对应的债权部分或全部转让于第三方，届时甲方根据在财富农场的借款协议及本协议的相关约定，向新的债权人履行清偿义务。</li>
+                <li>当甲方发生逾期未全部偿还借款总额及借款利息时，丙方有权向出借人披露甲方相关信息，且不视为甲方违反保密义务。并有权代表出借人要求乙方受让出借人对甲方的债权。</li>
+            </ul>
+            <h6 class="f-w-b f-14">四、陈述与保证</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>甲方承诺借入的借款总额仅用于本协议约定之目的（仅用作支付消费款、委托服务费、其他费用中的全部或部分），不将借入资金挪作他用。</li>
+                <li>乙方承诺丙方于本协议下转付至收款账户的转付金额为甲方应支付的消费款，不作为其他用途。</li>
+                <li>甲方及乙方保证向丙方提供的所有信息是合法、真实、准确、完整的，不存在虚假、误导性陈述或者重大遗漏，并承诺对已提供的信息进行及时的更新维护。</li>
+                <li>甲方及乙方明确知悉丙方将核实交易信息并同意予以配合，甲方及丙方在财富农场借款时使用相关信息不违反保密义务。</li>
+                <li>丙方不保证甲方成功借入借款总额，若甲方未能在合理时间于财富农场完成本协议下的全部借款，丙方有权解除本协议，不视为丙方违约。</li>
+                <li>各方承诺对在履行本协议过程中知晓的任何他方的保密信息承担保密义务。</li>
+                <li>甲方明确知悉，当甲方发生本协议第六条约定之违约情形时，丙方有权要求乙方立即解除与甲方的消费协议。</li>
+                <li>甲方及乙方承诺将遵守时惠分享不时公布的的各项规则、规定、公告等。</li>
+                <li>甲方与乙方之间的消费关系系甲乙双方独立签署，丙方不介入甲乙双方之间的权利义务关系。</li>
+            </ul>
+            <h6 class="f-w-b f-14">五、保证金</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>乙方应按本协议约定的额度及方式向丙方缴纳保证金，保证金数额以本协议《第一部分：委托事项明细》中的“保证金”项下的“保证金金额”为准。保证金由丙方于预计借款起始日起代为收取。</li>
+                <li>甲方及乙方保证，当甲方无法履行或者拒绝履行或者迟延履行还款义务的，丙方有权直接从保证金中划取相应金额用于向出借人还款。</li>
+                <li>当甲方完全、充分地履行借款协议项下的还款义务的，丙方将剩余保证金及产生的相应利息划转至甲方或乙方于时惠分享注册时绑定的银行账户。</li>
+            </ul>
+            <h6 class="f-w-b f-14">六、终止租赁协议条款</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>甲方、乙方明确知悉并同意，当甲方逾期还款金额总额超过本协议《第一部分：委托事项明细》中的“保证金”项下的保证金金额的，乙方有权终止与甲方的消费关系，解除消费协议，且不视为乙方在消费协议项下的违约。</li>
+                <li>乙方同意，在甲方按照本协议约定要求乙方受让出借人对甲方的借款，乙方应按照现时的借款总额、借款利息及已发生的滞纳金总和受让出借人对甲方的借款（扣除甲方已经偿还的本金及保证金）。</li>
+                <li>甲方、乙方明确知悉并同意，甲方已向乙方履行租金总额支付义务的行为，不影响乙方依本条规定行使单方解除租赁协议的权利或义务。</li>
+            </ul>
+            <h6 class="f-w-b f-14">七、违约责任</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>任何一方违反本协议约定，给守约方造成损害的，应当承担违约责任。违约责任以守约方实际遭受的直接损失计算。</li>
+                <li>丙方通过本协议约定及法律规定方式解除本协议的，不视为丙方违约，无需向甲方及/或乙方承担违约责任。</li>
+                <li>因不可抗力事由，致使任何一方无法履行本协议约定义务的，可无需承担违约责任；但发生不可抗力的一方应采取必要的补救措施以减小不可抗力造成的损失。</li>
+            </ul>
+            <h6 class="f-w-b f-14">八、法律适用及管辖</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>本协议的全部事项，包括但不限于本协议的效力、解释、履行以及争议的解决均适用中华人民共和国法律。</li>
+                <li>在本协议履行过程中发生的任何争议，应先行协商解决；协商不成的，任何一方可向上海市普陀区人民法院提起诉讼。</li>
+            </ul>
+            <h6 class="f-w-b f-14">九、其他</h6>
+            <ul class="Order_agreement_paddleft" style="list-style: decimal;">
+                <li>如果本协议的任何条款违反相关的法律法规，则该条款即被视为无效，且该无效条款不影响本协议其他条款的效力。</li>
+                <li>时惠分享上公布的与本协议相关的规则、通知等为本协议不可分割的组成部分，与本协议具有同等法律效力。</li>
+                <li>本协议任何条款的标题仅系为方便援引和阅读而设置，不得被用于解释本协议任何条款的依据。</li>
+                <li>任意一方未行使法律或本协议约定权利的，不视为其放弃该权利及/或其他权利。</li>
+                <li>本协议采用电子合同方式签署。甲方及乙方通过完成在平台上的相关申请操作即完成对本协议的签署，丙方对甲方及乙方所提交申请内容的复核通过即视为丙方对本协议的签署。各方在时惠分享网站对本协议进行操作成功确认时，即视为该方接受本协议条款内容并受此内容之拘束；本协议一经签署即成立并生效。</li>
+                <li>本协议经由三方通过时惠分享明确协议内容且确认的方式，进行签署。</li>
+            </ul>
+            <p>本协议各方委托丙方保管所有与本协议有关的书面文件及/或电子信息。（以下无正文）</p>
+        </div>
+    </ion-content>
+</ion-view>

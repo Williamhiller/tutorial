@@ -1,0 +1,100 @@
+
+<ion-view title="订单详情" hide-nav-bar="isWechat">
+    <ion-content>
+        <!--待确认订单显示-->
+        <div ng-if="data.sod_main_state == '241900000001'&&data.left_time>0">
+            <div class="item item-borderless">
+                <h2 class="m-bottom-15">{{data.merchant_name}}的订单</h2>
+                <div ng-if="data.cod_apply_preiod" class="padding a-center f-14">
+                    <span class="c-666">商户指定期数</span>
+                    <span class="c-orange f-20">{{data.cod_apply_preiod}}</span>期({{data.sod_term_days/data.cod_apply_preiod | number:0}}天/期)
+                </div>
+                <div ng-if="!data.cod_apply_preiod">
+                    <p class="a-right c-999">分<span class="c-orange f-16">{{repay.preiod}}</span>期({{data.sod_term_days/repay.preiod | number:0}}天/期)</p>
+                    <div class="range range-positive none-padding">
+                        <input type="range" ng-change="changePreiod()" name="volume" min="{{data.sod_min_installment}}" max="{{data.sod_max_installment}}" ng-model="repay.preiod" style="margin-top: 0">
+                    </div>
+                </div>
+                <div class="row none-padding c-999 f-14 m-bottom-5">
+                    <div class="col">
+                        <p>每期应还(元):</p>
+                        <p><span class="c-orange">{{data.sod_repayment_amt | number:2}}</span></p>
+                    </div>
+                    <div class="col">
+                        <p>分期总额(元):</p>
+                        <p>{{data.sod_total_amt | number:2}}</p>
+                    </div>
+                </div>
+                <p class="f-12" ng-if="data.bod_paying_party == '204700000001'">平均每期还款包含手续费约 {{data.sod_total_interest/repay.preiod | number:2}}元</p>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-class="{'button-disabled':!repay.agree}" ng-click="confirm()">确认分期</button>
+                <div class="f-12 c-999 m-top-10">
+                    <label class="checkbox f-12 none-padding">
+                        <input type="checkbox" name="agree"
+                               ng-checked="repay.agree"
+                               ng-model="repay.agree"
+                               ng-init="repay.agree=true">我已阅读并同意</label>
+                    <a ui-sref="tab.me_agreement({inst_order_id:data.inst_order_id})">《委托服务协议》</a>
+                </div>
+            </div>
+        </div>
+        <!--已确认订单显示-->
+        <div ng-if="data.sod_main_state != '241900000001'||(data.sod_main_state == '241900000001'&&data.left_time<0)" class="Order_detail_header m-bottom">
+            <div class="item item-borderless">
+                <h2>{{data.merchant_name}}的订单</h2>
+                <p class="padding a-center f-14" ng-if="data.cod_apply_preiod">
+                    商家指定期数
+                    <span class="c-orange f-20">{{data.cod_apply_preiod}}</span>
+                    ({{data.sod_term_days/data.cod_apply_preiod | number:0}}天/期)
+                </p>
+                <p class="padding a-center f-14" ng-if="!data.cod_apply_preiod">
+                    最大分期数
+                    <span class="c-orange f-20">{{data.sod_max_installment}}</span>
+                    ({{data.sod_term_days/data.sod_max_installment | number:0}}天/期)
+                </p>
+                <div class="row none-padding c-999 f-14 m-bottom-5">
+                    <div class="col">
+                        <p>每期应还(元):</p>
+                        <p><span class="c-orange">{{data.sod_repayment_amt | number:2}}</span></p>
+                    </div>
+                    <div class="col">
+                        <p>分期总额(元):</p>
+                        <p><span class="c-orange">{{data.sod_total_amt | number:2}}</span></p>
+                    </div>
+                </div>
+                <p class="f-12" ng-if="data.bod_paying_party == '204700000001'">平均每期还款包含手续费约 {{data.sod_total_interest/repay.preiod | number:2}}元</p>
+                <div class="seal">
+                    <img ng-src="frame/images/seal/seal{{data.sod_main_state == '241900000006'&&!data.bcase_repay_id&&data.plan_count!=0?7:data.sod_main_state == '241900000001'&&data.left_time<0?4:data.sod_main_state.substr(11,1)}}.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="list">
+            <div class="item Order_detail">
+                <h2 class="m-bottom-15">分期信息</h2>
+                <p><span class="title">订单号</span>{{data.inst_order_no}}</p>
+                <p><span class="title">开始分期日</span>{{data.sod_start_date}}</p>
+                <p><span class="title">结束分期日</span>{{data.sod_end_date}}</p>
+                <p><span class="title">分期总天数</span>{{data.sod_term_days}}天</p>
+            </div>
+            <a ng-if="data.sod_main_state != '241900000003'"
+               class="item item-icon-right"
+               ng-click="stateGoPlan()">
+                还款计划明细
+                <i class="icon icon-forward"></i>
+            </a>
+            <a class="item item-icon-right" ui-sref="tab.me_order_progress({inst_order_id:data.inst_order_id})">
+                订单进度<i class="icon icon-forward"></i></a>
+            <a ng-if="data.sod_main_state == '241900000006'" class="item item-icon-right" ui-sref="tab.me_agreement({inst_order_id:data.inst_order_id})">
+                委托服务协议<i class="icon icon-forward"></i></a>
+        </div>
+        <div class="list">
+            <div class="item item-borderless">
+                <h2 class="m-bottom-15">订单备注</h2>
+                <p>{{data.bod_remark}}</p>
+            </div>
+            <p ng-if="data.sod_main_state == '241900000001'&&data.left_time>0" class="a-right padding c-999">如果订单信息错误，您可以选择 <a ng-click="giveUp(data.inst_order_id)"> 放弃订单</a></p>
+        </div>
+    </ion-content>
+</ion-view>
