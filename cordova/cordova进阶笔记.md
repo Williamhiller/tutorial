@@ -125,9 +125,7 @@ var device = $cordovaDevice.getPlatform();
 ```
 
 document.addEventListener("deviceready",function (){
-
-var device = $cordovaDevice.getPlatform();
-
+    var device = $cordovaDevice.getPlatform();
 },false)
 
 ```
