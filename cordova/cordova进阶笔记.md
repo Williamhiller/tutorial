@@ -117,9 +117,7 @@ cordova plugin search bar code 查看插件列表（会跳转进入官网）
 ```
 
 $ionicPlatform.ready(function (){
-
 var device = $cordovaDevice.getPlatform();
-
 })
 
 ```
@@ -139,11 +137,8 @@ var device = $cordovaDevice.getPlatform();
 **Icon**
 
 * 29pt: 1@x 2@x 3@x
-
 * 40pt: 2@x 3@x
-
 * 57pt: 1@x 2@x
-
 * 60pt: 2@x 3@x
 
 
