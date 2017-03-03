@@ -153,9 +153,7 @@ var device = $cordovaDevice.getPlatform();
 * iPhone Portrait ios5-6: 
 
 1. 1@x-320\*480(iPhone3) 
-
 1. 2@x-640\*960(iPhone4) 
-
 1. Retina-640\*1136(iPhone5)
 
 
@@ -163,7 +161,6 @@ var device = $cordovaDevice.getPlatform();
 * iPhone Portrait ios8-9: 
 
 1. HD5.5-1242\*2208(iPhone6P)  
-
 1. HD4.7-750\*1334(iPhone6)
 
 
