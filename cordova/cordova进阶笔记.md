@@ -172,9 +172,7 @@ var device = $cordovaDevice.getPlatform();
 ###外部参考
 
 1. whitelist:  https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-
 1. http://blog.csdn.net/gisxy/article/details/19571245
-
 1. 使用插件: https://www.joshmorony.com/using-cordova-plugins-in-ionic-2-with-ionic-native/
 
 
