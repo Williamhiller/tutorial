@@ -7,11 +7,8 @@ PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Softw
 ###安装
 
 1.  安装nodejs https://nodejs.org
-
 2.  安装Cordova CLI      **npm install -g cordova**  Mac安装失败的话加上sudo
-
 3. 安装java JDK
-
 4. 安装Android SDK
 
 <br/>
@@ -19,7 +16,6 @@ PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Softw
 ###创建项目
 
 cordova create hello com.example.hello HelloWorld
-
 cordova create<工程路径><包名><工程名>
 
 <br/>
@@ -27,9 +23,7 @@ cordova create<工程路径><包名><工程名>
 ###打包
 
 **添加平台:** cordova platform add ios
-
 **构建项目(打包):** cordova build
-
 **项目文件位置:** 项目文件夹>platforms>ios>xxx.xcodeproj
 
 <br/>
@@ -39,9 +33,7 @@ cordova create<工程路径><包名><工程名>
 **config.xml**文件
 
 1. feature是插件配置，会自动生成
-
 1. Icon和LaunchImage(首屏画面)可以在这配置，也可以在xcode中配置(建议)
-
 1.  进入首页，也可以在CDVAppdelegate.m中
 
 ``<content src="index.html" />``
@@ -49,9 +41,7 @@ cordova create<工程路径><包名><工程名>
 ``self.viewController.startPage = @"index.html" ``
 
 1. ``<allow-intent href="*" />`` 配置可访问地址 URLS (不配置无法现实网络图片)
-
 ``<access origin="*" />``  配置网络请求地址(发送请求，调用接口)
-
 ``<allow-navigation href="*" />`` 配置可以访问并跳转的地址（很少用，可跳转地址）
 
 ```
@@ -96,19 +86,13 @@ cordova create<工程路径><包名><工程名>
 cordova plugin search bar code 查看插件列表（会跳转进入官网）
 
 **例如：** cordova plugin add cordova-plugin-device  （设备API）
-
 **删除插件：**cordova plugin rm
-
 **插件列表：**cordova plugin ls
-
 **插件:(常用)**
 
 1. device: 获取设备硬件和软件信息
-
 1. device-orientation:获取设备手持方向-电子罗盘
-
 1. console:Xcode控制台打印调试
-
 7. contacts:管理手机通讯录
 
 7. splashscreen:实现全屏和添加程序启动界面（可以用X-code自带的）
