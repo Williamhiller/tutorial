@@ -94,9 +94,7 @@ cordova plugin search bar code 查看插件列表（会跳转进入官网）
 1. device-orientation:获取设备手持方向-电子罗盘
 1. console:Xcode控制台打印调试
 7. contacts:管理手机通讯录
-
 7. splashscreen:实现全屏和添加程序启动界面（可以用X-code自带的）
-
 7. statusbar:手机顶部栏
 
 
