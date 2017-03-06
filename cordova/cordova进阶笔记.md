@@ -63,7 +63,6 @@ cordova create<工程路径><包名><工程名>
 <access origin="https://google.com" />
 <!-- 可访问谷歌子域 maps.google.com -->
 <access origin="http://maps.google.com" />
-
 <!-- 所有的子域 google.com -->
 <access origin="http://*.google.com" />
 <!-- 允许来自谷歌的网络图片 -->
@@ -73,7 +72,6 @@ cordova create<工程路径><包名><工程名>
 ```
 
 ```
-
 <!-- Allow links to example.com -->
 <allow-navigation href="http://example.com/*" />
 ```
