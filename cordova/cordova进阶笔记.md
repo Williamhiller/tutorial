@@ -66,10 +66,8 @@ cordova create<工程路径><包名><工程名>
 
 <!-- 所有的子域 google.com -->
 <access origin="http://*.google.com" />
-
 <!-- 允许来自谷歌的网络图片 -->
 <access origin="content:///*" />
-
 <!-- Don't block any requests -->
 <access origin="*" />
 ```
