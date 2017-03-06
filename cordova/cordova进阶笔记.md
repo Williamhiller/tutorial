@@ -46,7 +46,6 @@ cordova create<工程路径><包名><工程名>
 ``<allow-navigation href="*" />`` 配置可以访问并跳转的地址（很少用，可跳转地址）
 
 ```
-
 <allow-intent href="http://*/*" />
 <allow-intent href="https://*/*" />
 <allow-intent href="tel:*" />
