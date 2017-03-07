@@ -31,7 +31,6 @@ cordova create<工程路径><包名><工程名>
 ###配置
 
 **config.xml**文件
-
 1. feature是插件配置，会自动生成
 1. Icon和LaunchImage(首屏画面)可以在这配置，也可以在xcode中配置(建议)
 1.  进入首页，也可以在CDVAppdelegate.m中
