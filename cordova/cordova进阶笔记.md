@@ -11,7 +11,6 @@ PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Softw
 3. 安装java JDK
 4. 安装Android SDK
 
-
 <br/>
 
 ###创建项目
