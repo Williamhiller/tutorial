@@ -134,7 +134,6 @@ document.addEventListener("deviceready",function (){
 * 60pt: 2@x 3@x
 
 
-
 **LaunchImage**
 
 * iPhone Portrait ios5-6: 
@@ -142,7 +141,6 @@ document.addEventListener("deviceready",function (){
 1. 1@x-320\*480(iPhone3) 
 1. 2@x-640\*960(iPhone4) 
 1. Retina-640\*1136(iPhone5)
-
 
 
 * iPhone Portrait ios8-9: 
