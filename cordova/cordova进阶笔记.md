@@ -5,7 +5,6 @@ PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Softw
 <br/>
 
 ###安装
-
 1.  安装nodejs https://nodejs.org
 2.  安装Cordova CLI      **npm install -g cordova**  Mac安装失败的话加上sudo
 3. 安装java JDK
