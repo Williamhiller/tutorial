@@ -19,7 +19,6 @@ cordova create<工程路径><包名><工程名>
 <br/>
 
 ###打包
-
 **添加平台:** cordova platform add ios
 **构建项目(打包):** cordova build
 **项目文件位置:** 项目文件夹>platforms>ios>xxx.xcodeproj
