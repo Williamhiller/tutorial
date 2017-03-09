@@ -14,7 +14,6 @@ PhoneGap 被 Adobe 收购了，但是剥离了核心代码贡献给 Apache Softw
 <br/>
 
 ###创建项目
-
 cordova create hello com.example.hello HelloWorld
 cordova create<工程路径><包名><工程名>
 
