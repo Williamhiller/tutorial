@@ -4,4 +4,5 @@
 
 **关于段落的属性**
 1. text-indent : 首行文字缩进，值可以是各种符合规范的值如px,em,rem甚至%号,cm,mm等；不过有一个巧妙的用处就是可以是负值,适当的运用可以实现“悬挂缩进”的效果，一般制作协议页面时用的较多
-1. text-align : left | center | right | justify 这个不多说，后边会详细解释
+1. text-align : left | center | right | justify |inherit 文本属性对其属性，控制整个段落
+1. 
