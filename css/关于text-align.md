@@ -11,6 +11,11 @@
 	* uppercase（仅有大写字母）
 	* dowercase（仅有小写字母）
 1. letter-spacing（字符间隔）：用PX等定义字符间的固定空间（允许使用负值）	
+1. white-space（处理元素内的空白）：
+	* pre（保留空白、保留换行符、不允许自动换行）
+	* nowrap（合并空白、忽略换行符、不允许自动换行）
+	* pre-wrap（保留空白、保留换行符、允许自动换行） 
+	* pre-line（合并空白、保留换行符、允许自动换行）
 
 <br/>
 ####text-indent
