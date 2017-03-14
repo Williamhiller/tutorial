@@ -11,11 +11,17 @@
 	* uppercase（仅有大写字母）
 	* dowercase（仅有小写字母）
 1. letter-spacing（字符间隔）：用PX等定义字符间的固定空间（允许使用负值）	
+1. word-spacing（字间隔）：length 
 1. white-space（处理元素内的空白）：
 	* pre（保留空白、保留换行符、不允许自动换行）
 	* nowrap（合并空白、忽略换行符、不允许自动换行）
 	* pre-wrap（保留空白、保留换行符、允许自动换行） 
 	* pre-line（合并空白、保留换行符、允许自动换行）
+1.  line-height（行高）：
+	* number（设置数字，此数字会与当前的字体尺寸相乘来设置行间距） 
+	* length（用PX等设置固定的行间距)
+	* %（基于当前字体尺寸的百分比行间距）
+1. Direction（方向）：ltr（默认。文本方向从左到右）、rtl（文本方向从右到左） 	
 
 <br/>
 ####text-indent
