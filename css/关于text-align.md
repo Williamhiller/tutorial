@@ -22,6 +22,16 @@
 	* length（用PX等设置固定的行间距)
 	* %（基于当前字体尺寸的百分比行间距）
 1. Direction（方向）：ltr（默认。文本方向从左到右）、rtl（文本方向从右到左） 	
+1. word-break: normal（使用浏览器默认的换行规则。）|break-all（允许在单词内换行。）|keep-all（只能在半角空格或连字符处换行。）
+
+IE 
+1. text-justify : auto |inter-word | newspaper | distribute | distribute-all-lines | inter-ideograph
+	* auto：允许浏览器用户代理确定使用的两端对齐法则 ；
+	* inter-word：通过增加字之间的空格对齐文本。该行为是对齐所有文本行最快的方法。它的两端对齐行为对段落的最后一行无效 ；
+	* newspaper ：通过增加或减少字或字母之间的空格对齐文本。是用于拉丁文字母表两端对齐的最精确格式
+	* distribute：处理空格很像newspaper，适用于东亚文档。尤其是泰国
+	* distribute-all-lines：两端对齐行的方式与distribute相同，也同样不包含两段对齐段落的最后一行。适用于表意字文档
+	* inter-ideograph：为表意字文本提供完全两端对齐。他增加或减少表意字和词间的空格
 
 <br/>
 ####text-indent
