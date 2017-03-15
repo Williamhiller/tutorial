@@ -76,6 +76,8 @@ IE
 1. normal :　默认值。应用日文文本的默认换行规则 
 1. strict :　强制日文文本换行规则的严谨性 
 
+**font-emphasize-style:** none | accent | dot | circle | disc
+
 
 
 
