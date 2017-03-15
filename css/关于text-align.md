@@ -69,6 +69,7 @@ IE
 1. char : 　指定只使用字符网格。建议和块对象（如div）一起使用
 1. none : 　不使用网格
 
+**layout-grid:** none | [<mode> || <type> || [<line> [<char>]? ] ]
 
 
 
