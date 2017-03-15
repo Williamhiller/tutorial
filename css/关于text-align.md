@@ -60,7 +60,8 @@ IE
 **layout-grid-char：** none | auto | <length> | <percentage> 
 1. none: 无，默认样式
 1. auto：自动根据最宽的元素来自适应
-1. 
+1. length: 宽度，包括px,em,rem等
+1. percentage: 百分比，其实可归于length一类
 
 
 
