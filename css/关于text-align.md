@@ -63,6 +63,8 @@ IE
 1. length: 宽度，包括px,em,rem等
 1. percentage: 百分比，其实可归于length一类
 
+**layout-grid-mode:** none | line | char | both
+
 
 
 
