@@ -77,8 +77,10 @@ IE
 1. strict :　强制日文文本换行规则的严谨性 
 
 **font-emphasize-style:** none | accent | dot | circle | disc
+顶部加声调。
 
-但是
+<br/>
+**总结** 后边的一些都是一些IE属性，现在已经基本淘汰掉，很少使用了，但是我们还是要了解一些
 
 
 
