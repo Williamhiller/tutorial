@@ -27,6 +27,7 @@
 1. Direction（方向）：ltr（默认。文本方向从左到右）、rtl（文本方向从右到左） 	
 1. word-break: normal（使用浏览器默认的换行规则。）|break-all（允许在单词内换行。）|keep-all（只能在半角空格或连字符处换行。）
 
+
 IE 
 1. text-justify : auto |inter-word | newspaper | distribute | distribute-all-lines | inter-ideograph
 	* auto：允许浏览器用户代理确定使用的两端对齐法则 ；
