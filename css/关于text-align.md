@@ -84,7 +84,6 @@ IE
 **font-emphasize-style:** none | accent | dot | circle | disc
 顶部加声调。
 
-
 <br/>
 **总结** 后边的一些都是一些IE属性，现在已经基本淘汰掉，很少使用了，但是我们还是要了解一些
 
