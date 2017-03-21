@@ -65,6 +65,7 @@ IE
 1. length: 宽度，包括px,em,rem等
 1. percentage: 百分比，其实可归于length一类
 
+
 **layout-grid-mode:** none | line | char | both
 1. both : 　指定char和line都被启用。要在一个对象上完全启用网格版式，此值是必须的
 1. line : 　指定只使用行网格。建议与内联对象（如span）一起使用
