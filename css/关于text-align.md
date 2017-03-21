@@ -74,6 +74,7 @@ IE
 **layout-grid:**  layout-grid-mode || layout-grid-type || layout-grid-line || layout-grid-char || layout-grid-char-spacing 
 如：div { layout-grid:char line 12px 12px 5px; }
 
+
 **line-break：**  normal | strict   IE5+专有属性
 1. normal :　默认值。应用日文文本的默认换行规则 
 1. strict :　强制日文文本换行规则的严谨性 
