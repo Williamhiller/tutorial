@@ -35,3 +35,16 @@
 - [x] 中括号中间可加x,表示此选项选中
 
 [链接，后边直接跟地址即可](https://www.baidu.com/)
+
+![image](http://note.youdao.com/favicon.ico) 图片，与链接很像，区别是在前边多了一个感叹号
+
+
+```
+<div>
+    <p>代码块，上下各三个反引号，中间可以加任意代码</p>   
+</div>
+```
+    <div>
+        <span>活着直接四个空格或tab键</span>
+    </div>
+
