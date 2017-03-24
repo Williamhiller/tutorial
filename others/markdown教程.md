@@ -36,7 +36,7 @@
 
 [链接，后边直接跟地址即可](https://www.baidu.com/)
 
-![image](http://note.youdao.com/favicon.ico) 图片，与链接很像，区别是在前边多了一个感叹号
+![image](https://caifunc.com:443/images/favicon.png) 图片，与链接很像，区别是在前边多了一个感叹号
 
 
 ```html
@@ -57,14 +57,4 @@
 E = mc^2
 ```
 
-```
-graph LR 
-A-->B
-```
-
-```
-sequenceDiagram
-A->>B: 你好！
-B->>A: 你也好啊!
-```
 
