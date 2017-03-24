@@ -62,5 +62,9 @@ graph LR
 A-->B
 ```
 
-
+```
+sequenceDiagram
+A->>B: 你好！
+B->>A: 你也好啊!
+```
 
