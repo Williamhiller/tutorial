@@ -39,6 +39,7 @@
 ![image](https://caifunc.com:443/images/logo.png) 图片，与链接很像，区别是在前边多了一个感叹号
 
 
+
 ```html
 <div>
     <p>代码块，上下各三个反引号，中间可以加任意代码</p>   
